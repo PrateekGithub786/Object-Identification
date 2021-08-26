@@ -24,4 +24,18 @@ function gotResults(error, results){
 
 function draw(){
     image(img, 0, 0, 600, 400);
+
+    if(status != ""){
+        for(i = 0; i < object.length; i++){
+            document.getElementById("statusBottles").innerHTML = "Status : Object Detected";
+
+            fill(255, 0, 0);
+            percent = floor(object[i].confidence * 100);
+            text(object[i].label + " " + percent + " %", object[i].x + 15, object[i].y + 15);
+            noFill();
+            stroke("red");
+            rect(object[i].x, object[i].y, object[i].width, object[i].height);
+            
+        }
+    }
 }
