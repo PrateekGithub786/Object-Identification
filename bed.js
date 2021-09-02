@@ -30,10 +30,11 @@ function gotResults(error, results){
 function draw(){
     image(img, 0, 0, 600, 400);
 
-    if(status != ""){
+    if(status = true){
         for(i = 0; i < object.length; i++){
             document.getElementById("statusBed").innerHTML = "Status : Object Detected";
-            document.getElementById("objectsBed").innerHTML = "There are " + object.length + "objects";
+            document.getElementById("objectsBed").innerHTML = "There are/is "+ object.length + " " + "object(s)";
+
             fill(255, 0, 0);
             percent = floor(object[i].confidence * 100);
             text(object[i].label + " " + percent + " %", object[i].x + 15, object[i].y + 15);
